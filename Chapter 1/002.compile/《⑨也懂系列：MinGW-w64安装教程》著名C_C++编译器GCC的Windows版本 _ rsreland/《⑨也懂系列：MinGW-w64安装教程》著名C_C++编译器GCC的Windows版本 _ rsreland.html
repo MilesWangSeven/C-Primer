@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://rsreland.net/archives/1760 -->
+<html lang="zh-CN" class="gr__rsreland_net"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width">
+			<link rel="pingback" href="http://rsreland.net/xmlrpc.php">
+	<title>《⑨也懂系列：MinGW-w64安装教程》著名C/C++编译器GCC的Windows版本 | rsreland</title>
+
+<!-- All in One SEO Pack 2.12 by Michael Torbert of Semper Fi Web Design[348,416] -->
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="rsreland » Feed" href="http://rsreland.net/feed">
+<link rel="alternate" type="application/rss+xml" title="rsreland » 评论Feed" href="http://rsreland.net/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="rsreland » 《⑨也懂系列：MinGW-w64安装教程》著名C/C++编译器GCC的Windows版本评论Feed" href="http://rsreland.net/archives/1760/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/rsreland.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/wp-emoji-release.min.js.下载" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="yarppWidgetCss-css" href="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/widget.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-css" href="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/pagenavi-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="journalism-style-css" href="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/style.css" type="text/css" media="all">
+<!--[if IE 7]>
+<link rel='stylesheet' id='journalism-style-ie7-css'  href='http://rsreland.net/wp-content/themes/journalism/css/ie7.css?ver=5.0.4' type='text/css' media='all' />
+<![endif]-->
+<!--[if IE 8]>
+<link rel='stylesheet' id='journalism-style-ie8-css'  href='http://rsreland.net/wp-content/themes/journalism/css/ie8.css?ver=5.0.4' type='text/css' media='all' />
+<![endif]-->
+<script type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/jquery.js.下载"></script>
+<script type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/jquery-migrate.min.js.下载"></script>
+<script type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/jquery.lazyload.min.js.下载"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='http://rsreland.net/wp-content/themes/journalism/js/html5.js?ver=5.0.4'></script>
+<![endif]-->
+<script type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/jquery.slides.min.js.下载"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var journalismStringJs = {"chooseFile":"Choose file...","fileNotSel":"File is not selected.","fileSel":"File Selected"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/script.js.下载"></script>
+<link rel="https://api.w.org/" href="http://rsreland.net/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://rsreland.net/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://rsreland.net/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="《シャイナ・ダルク 〜黒き月の王と蒼碧の月の姫君〜(世外魔岛～黑月之王与双月公主～)》日文原版漫画扫图，全4卷，已完结。" href="http://rsreland.net/archives/1753">
+<link rel="next" title="Cherry G80-3000 白色茶轴" href="http://rsreland.net/archives/1768">
+<meta name="generator" content="WordPress 5.0.4">
+<link rel="canonical" href="http://rsreland.net/archives/1760">
+<link rel="shortlink" href="http://rsreland.net/?p=1760">
+<link rel="alternate" type="application/json+oembed" href="http://rsreland.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Frsreland.net%2Farchives%2F1760">
+<link rel="alternate" type="text/xml+oembed" href="http://rsreland.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Frsreland.net%2Farchives%2F1760&amp;format=xml">
+
+<link rel="stylesheet" href="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/counter.css" type="text/css">
+<style type="text/css">
+img.lazy { display: none; }
+</style>
+	<style type="text/css">
+					.header h1 a,
+			.header p {
+				color: #ffffff;
+			}
+			</style>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #181e21; background-image: url("http://rsreland.net/wp-content/uploads/2015/10/library.jpg"); background-position: center top; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
+</style>
+<link rel="icon" href="http://rsreland.net/wp-content/uploads/2015/08/cropped-clown-32x32.png" sizes="32x32">
+<link rel="icon" href="http://rsreland.net/wp-content/uploads/2015/08/cropped-clown-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="http://rsreland.net/wp-content/uploads/2015/08/cropped-clown-180x180.png">
+<meta name="msapplication-TileImage" content="http://rsreland.net/wp-content/uploads/2015/08/cropped-clown-270x270.png">
+</head>
+
+<body class="post-template-default single single-post postid-1760 single-format-standard custom-background" data-gr-c-s-loaded="true">
+<header>
+	<div class="journalism_image_logo" style="background-image: url( &#39;&#39; );">
+		<div class="journalism-logo">
+			<div class="header">
+				<h1>
+					<a href="http://rsreland.net/">rsreland</a>
+				</h1>
+				<p>欢迎来到 rsreland(瑞兰德) 的个人网站。</p>
+			</div>
+		</div><!--div logo-->
+	</div>
+	<!--top menu-->
+	<div class="journalism-top-menu" style="overflow: hidden;">
+		<div class="menu-%e8%8f%9c%e5%8d%95-container"><ul id="menu-%e8%8f%9c%e5%8d%95" class="header-menu"><li id="menu-item-202" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-202"><a href="http://rsreland.net/">首页</a></li>
+<li id="menu-item-205" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-205"><a href="http://rsreland.net/about">关于</a></li>
+<li id="menu-item-204" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-204"><a href="http://rsreland.net/notice">公告</a></li>
+<li id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-203"><a href="http://rsreland.net/index">索引</a></li>
+<li id="menu-item-207" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-207"><a href="http://rsreland.net/list">列表</a></li>
+<li id="menu-item-2321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2321"><a href="http://rsreland.net/licence1-1" style="color: rgb(255, 255, 255);">许可证</a></li>
+<li id="menu-item-209" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-209"><a href="http://rsreland.net/help" style="color: rgb(255, 255, 255);">帮助</a></li>
+<li id="menu-item-210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-210"><a href="http://rsreland.net/thanks" style="color: rgb(255, 255, 255);">感谢</a></li>
+<li id="menu-item-208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-208"><a href="http://rsreland.net/feedback" style="color: rgb(255, 255, 255);">问题反馈</a></li>
+<li id="menu-item-1472" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1472"><a href="http://rsreland.net/background" style="color: rgb(255, 255, 255);">欣赏背景</a></li>
+</ul></div>		<div class="clear"></div>
+	</div>
+	<!--top menu-->
+</header>
+<div class="journalism-carcas">
+	<noscript>
+		<h1>你禁用了JavaScript...</h1>
+	</noscript>
+		<div class="clear"></div>
+	<div id="content">
+					<div class="post">
+								<div class="journalism-post-carcas">
+					<header>
+						<h2 class="entry-title">
+							《⑨也懂系列：MinGW-w64安装教程》著名C/C++编译器GCC的Windows版本						</h2><!-- tags .entry-title -->
+						<hr>
+						<div class="post-data">
+							<article>
+								发布日期								<a href="http://rsreland.net/archives/date/2016/10" title="《⑨也懂系列：MinGW-w64安装教程》著名C/C++编译器GCC的Windows版本">2016年10月31日</a>
+								分类&nbsp;<a href="http://rsreland.net/archives/category/tutorial" rel="category tag">教程</a>								标签 <a href="http://rsreland.net/archives/tag/programming" rel="tag">编程</a>、<a href="http://rsreland.net/archives/tag/software" rel="tag">软件</a>							</article>
+						</div><!-- div .post-data -->
+					</header>
+					<div class="post-text">
+						<p><a href="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/1760_0.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/1760_0.png" data-original="http://img.rsreland.net/1760/1760_0.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_0.png" alt="MinGW-w64" /></noscript></a></p>
+<p><strong>前言</strong><br>
+《⑨也懂系列：MinGW-w64安装教程》这篇文章由&nbsp;rsreland （http://rsreland.net）于 2016年09月24日 编写，是<a href="http://rsreland.net/archives/344" target="_blank" rel="noopener">《⑨也懂系列：MinGW安装教程Ver.2》</a>的姊妹篇。MinGW-w64 对应的 gcc 是 6.2.0 版本（也适用6.3.0版），运行环境是&nbsp;Windows 10 操作系统。（请注意本文的编写时间，及软件版本，来判断本文是否还有效。）</p>
+<p>本文主要讲述如何安装 C语言 编译器——MinGW-w64，特点是文章附有完整详细的实际安装过程截图，文字反而起说明提示作用。</p>
+<p>编写本文的原因始于我的一个观点：图片可以比文字传达更多的信息，也能让其他人更容易理解作者的意图及思想。因此，我将安装 MinGW-w64 的过程和步骤，编写成了这篇以图片为主的教程，为了让看到这篇文章的任何人，都可以很容易按照图片所示正确安装 MinGW-w64。</p>
+<p>我希望写出一篇即使是⑨也可以看懂的 MinGW-w64 安装教程。</p>
+<p><strong>一、什么是 MinGW-w64 ？</strong><br>
+MinGW 的全称是：Minimalist GNU on Windows 。它实际上是将经典的开源 C语言 编译器 GCC 移植到了 Windows 平台下，并且包含了 Win32API ，因此可以将源代码编译为可在&nbsp;Windows 中运行的可执行程序。而且还可以使用一些 Windows 不具备的，Linux平台下的开发工具。一句话来概括：MinGW 就是 GCC 的 Windows 版本 。</p>
+<p>以上是 MinGW 的介绍，MinGW-w64 与 MinGW 的区别在于 MinGW 只能编译生成32位可执行程序，而 MinGW-w64 则可以编译生成 64位 或 32位 可执行程序。</p>
+<p>正因为如此，MinGW 现已被&nbsp;MinGW-w64 所取代，且&nbsp;MinGW 也早已停止了更新，内置的 GCC 停滞在了 4.8.1 版本，而 MinGW-w64 内置的 GCC 则更新到了 6.2.0 版本。</p>
+<p>（另外，如果对 MinGW 感兴趣，这里有我写的安装教程：<a href="http://rsreland.net/archives/344" target="_blank" rel="noopener">http://rsreland.net/archives/344</a>&nbsp;。）</p>
+<p><strong>二、为什么使用 MinGW-w64 ？</strong><br>
+1. MinGW-w64 是开源软件，可以免费使用。<br>
+2. MinGW-w64 由一个活跃的开源社区在持续维护，因此不会过时。<br>
+3. MinGW-w64 支持最新的 C语言 标准。<br>
+4. MinGW-w64 使用 Windows 的C语言运行库，因此编译出的程序不需要第三方 DLL ，可以直接在 Windows 下运行。<br>
+5. 那些著名的开源 IDE 实际只是将 MinGW-w64 封装了起来，使它拥有友好的图形化界面，简化了操作，但内部核心仍然是 MinGW-w64。</p>
+<p>MinGW-w64 是稳定可靠的、持续更新的 C/C++ 编译器，使用它可以免去很多麻烦，不用担心跟不上时代，也不用担心编译器本身有bug，可以放心的去编写程序。</p>
+<p><strong>三、MinGW-w64 适合做什么？</strong><br>
+对于熟悉 MinGW-w64 的高手而言，它可以编译任何 C语言 程序。但对于一般人来说，MinGW-w64 太过简陋，连图形用户界面都没有。这让习惯使用鼠标的人，感到很痛苦。虽然也可以通过一些配置，让 MinGW-w64 拥有图形用户界面，但那个过程非常麻烦。</p>
+<p>除此之外，编译复杂的程序时，还需要你会编写 Makefile ，否则只能一个文件一个文件的编译，可想而知会多么辛苦。</p>
+<p>但对于初学 C语言 的人来说，MinGW-w64 是正合适的编译器，至少黑色的命令提示符界面很有编程的气氛，感觉很酷。</p>
+<p>在刚开始学 C语言 时，所有代码通常都写在一个文件中，只要输入几个简单的命令，就能用 MinGW-w64 编译成可执行文件。虽然 &nbsp;VS2015 等编译器，只要点击下鼠标就可以完成编译，但它会自动生成一大堆工程文件，让初学者摸不着头脑。而 MinGW-w64 则只会生成一个可执行文件。</p>
+<p>如果对 MinGW-w64 和 VS2015 等编译器进行一下形容，那么 MinGW-w64 是手动的，而 &nbsp;VS2015 等编译器则是自动的。因此 MinGW-w64 的编译过程更加直观容易理解，也比较适合C语言学习。</p>
+<p>总而言之，对于一般人来说，MinGW-w64 适合学习 C语言 时使用，真正工作还是用 &nbsp;VS2015 更好。当然如果您是在 Linux 下工作，那么Code::Blocks可能是一个选择，不过最大的可能是您必须习惯使用&nbsp;GCC 来编译程序。</p>
+<p><strong>四、下载和安装 MinGW-w64</strong><br>
+在开始安装之前，请先确认您满足以下几个条件。<br>
+1.您的电脑已经连接到网络。<br>
+2.您的电脑硬盘有500MB的剩余空间。<br>
+3.您现在有充足的时间。（受您当前网速的影响，安装过程可能会花费10几分钟或1个小时以上的时间。）</p>
+<p>如果您确认，您满足了上述条件，那么就可以开始安装 MinGW-w64 了。</p>
+<p><span style="color: #ff6600;"><strong>注意：</strong></span>教程中的图片都是实际安装时的<strong><span style="color: #ff6600;">原比例截图</span></strong>，如果您看不清图片中的提示语，<strong><span style="color: #ff6600;">可以将图片放大</span></strong>，不会影响清晰度。想要观看大图，只需点击图片，就会跳转到原始尺寸的图片页面中。如果前面的方法失效，您仍然可以通过浏览器放大页面的功能，放大图片，例如在&nbsp;Chrome 浏览器下，您可以按住 Ctrl 键，然后滚动鼠标滚轮，即可放大页面。</p>
+<p><strong>1.MinGW-w64官方网站首页</strong>（http://mingw-w64.org/）<br>
+<a href="http://img.rsreland.net/1760/1760_1.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_1.png" alt="MinGW-w64官方网站首页" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_1.png" alt="MinGW-w64官方网站首页" /></noscript></a><br>
+说明：MinGW-w64 官方网站的地址是：http://mingw-w64.org ，首页样式如上图所示。</p>
+<p>操作：点击红框中的“Downloads”超链接，进入 MinGW-w64 下载详情页面。</p>
+<p><strong>2.MinGW-w64下载详情页面</strong><br>
+<a href="http://img.rsreland.net/1760/1760_2.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_2.png" alt="MinGW-w64下载详情页面" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_2.png" alt="MinGW-w64下载详情页面" /></noscript></a><br>
+说明：这是 MinGW-w64 的下载详情页面。首先看到一个标题为 Pre-built toolchains and packages 的列表，这里面是包含 MinGW-w64 及特定工具的整合包。我们这个教程只安装 MinGW-w64 ，所以只需下载 MinGW-w64 即可。</p>
+<p>操作：点击红框中的“SourceForge”超链接，就会进入 SourceForge 中的 MinGW-w64 下载页面。</p>
+<p><strong>3.SourceForge 中的 MinGW-w64 下载页面</strong><br>
+<a href="http://img.rsreland.net/1760/1760_3.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_3.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_3.png" alt="MinGW-w64" /></noscript></a><br>
+说明：MinGW-w64 的代码和可执行文件被托管存储在 SourceForge 上，在这个页面上就可以直接下载 MinGW-w64 了。MinGW-w64 是非常复杂的，编译器大多都是如此，为了适应各种操作系统，它们的组件会存在各种不同的版本，以适应不同的环境。所以，我们直接下载 MinGW-w64 的安装程序，它会按照我们的需要，自动下载适合的组件，并将它们组织在一起。</p>
+<p>操作：点击红框中的“Download mingw-w64-install.exe”超链接，将会下载这个 MinGW-w64 自动安装的程序。</p>
+<p><strong>4.等待 MinGW-w64 安装程序开始下载</strong><br>
+<a href="http://img.rsreland.net/1760/1760_4.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_4.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_4.png" alt="MinGW-w64" /></noscript></a><br>
+说明：5秒钟之后，浏览器会自动下载 mingw-w64-install.exe 。</p>
+<p>操作：只需等待。</p>
+<p>注意：如果浏览器没有自动下载，则可以点击黄框中的“direct link”超链接，手动下载。如果下载速度非常慢，可以点击绿框中的“mirror”超链接，选择一个离自己近的镜像网站，可能会获得较高（无法保证）的下载速度。</p>
+<p><strong>5.正在下载 mingw-w64-intall.exe</strong><br>
+<a href="http://img.rsreland.net/1760/1760_5.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_5.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_5.png" alt="MinGW-w64" /></noscript></a><br>
+说明：如果你的浏览器是 chrome ，那么在浏览器下部，会出现这样一个下载标签。</p>
+<p>操作：只需等待。</p>
+<p><strong>6.MinGW-w64 安装程序</strong><br>
+<a href="http://img.rsreland.net/1760/1760_6.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_6.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_6.png" alt="MinGW-w64" /></noscript></a><br>
+说明：这就是 MinGW-w64 的安装程序。它本质上是一个下载程序，会根据我们之后的一些设置，选择性的下载相应的组件，并将它们组织在一起。所以，运行前要确定网络通畅，而且你有足够的时间，因为根据你的网速，它可能需要花费一定的时间来下载。</p>
+<p>操作：用鼠标双击运行 mingw-w64-install.exe 。</p>
+<p>注意：如果出现无法运行，或者安装出错，你可以右键点击它，并在弹出窗口中选择“以管理员身份运行”选项，重新运行 mingw-w64-install.exe ，基本可以解决大部分问题。</p>
+<p><strong>7.MinGW-w64 安装程序欢迎界面</strong><br>
+<a href="http://img.rsreland.net/1760/1760_7.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_7.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_7.png" alt="MinGW-w64" /></noscript></a><br>
+说明：欢迎使用 MinGW-w64 在线安装程序。</p>
+<p>操作：点击红框中的 “Next” 按钮，将会进入下一步安装步骤。</p>
+<p><strong>8.从服务器获取&nbsp;MinGW-w64 文件信息</strong><br>
+<a href="http://img.rsreland.net/1760/1760_8.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_8.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_8.png" alt="MinGW-w64" /></noscript></a><br>
+说明：这里程序正在链接服务器，以便获取存储在仓库中的 MinGW-w64 的文件明细。</p>
+<p>操作：只需等待。</p>
+<p><strong>9.MinGW-w64 版本选择</strong><br>
+<a href="http://img.rsreland.net/1760/1760_9.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_9.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_9.png" alt="MinGW-w64" /></noscript></a><br>
+说明：在这个界面，你可以根据所要搭建的开发环境，选择不同的选项，从而下载所需的组件。</p>
+<p>操作：选择&nbsp;Version、Architecture、Threads、Exception、Build revision 下拉列表中适当的选项，接下来将会详细介绍这些选项。</p>
+<p><strong>10.选择 gcc 版本</strong><br>
+<a href="http://img.rsreland.net/1760/1760_10.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_10.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_10.png" alt="MinGW-w64" /></noscript></a><br>
+说明：Version 指的是 gcc 的版本，如果没有特殊的需求，一般选择最高的版本号即可。</p>
+<p>操作：在这个版本中，最高版本是&nbsp;6.2.0 ，选中它即可。</p>
+<p><strong>11.选择电脑系统架构</strong><br>
+<a href="http://img.rsreland.net/1760/1760_11.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_11.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_11.png" alt="MinGW-w64" /></noscript></a><br>
+说明：Architecture 是指电脑系统是&nbsp;32位 还是&nbsp;64位，根据你的电脑系统做出对应选择。</p>
+<p>操作：我的电脑系统是 64位 的，所以我选择了 x86_64，如果你是 32位 系统，则选择 i686 即可。</p>
+<p><strong>12.选择操作系统接口协议</strong><br>
+<a href="http://img.rsreland.net/1760/1760_12.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_12.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_12.png" alt="MinGW-w64" /></noscript></a><br>
+说明：这个世界上只有两种操作系统，符合 posix 协议的，和 Windows 。如这个笑话所说的，如果你想要开发 Windows 程序，需要选择 win32 ，而开发 Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix 。</p>
+<p>操作：我只开发在 Windows 下运行的程序，所以选择了 win32 。</p>
+<p><strong>13.选择异常处理模型（64位）</strong><br>
+<a href="http://img.rsreland.net/1760/1760_13.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_13.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_13.png" alt="MinGW-w64" /></noscript></a><br>
+说明：异常处理在开发中非常重要，你在开发的过程中，大部分的时间会耗在处理各种异常情况上。如果你之前选择了 64位，则这里有两个异常处理模型供你选择，seh 是新发明的，而 sjlj 则是古老的。seh 性能比较好，但不支持 32位。 sjlj 稳定性好，支持 32位。</p>
+<p>操作：我这里选择了 seh 。</p>
+<p><strong>14.选择异常处理模型（32位）</strong><br>
+<a href="http://img.rsreland.net/1760/1760_14.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_14.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_14.png" alt="MinGW-w64" /></noscript></a><br>
+说明：选择了 32位 后，则可以用 dwarf 和 sjlj 两种异常处理模型。同样的，dwarf 的性能要优于 sjlj ，可以它不支持 64位 。</p>
+<p>操作：建议选择 dwarf 。</p>
+<p><strong>15.建立修订</strong><br>
+<a href="http://img.rsreland.net/1760/1760_15.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_15.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_15.png" alt="MinGW-w64" /></noscript></a><br>
+说明：暂时没弄明白是做什么的。（知道的人请留言）</p>
+<p>操作：选择默认选项。</p>
+<p><strong>16.MinGW-w64 版本选择完成</strong><br>
+<a href="http://img.rsreland.net/1760/1760_16.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_16.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_16.png" alt="MinGW-w64" /></noscript></a><br>
+说明：绿框中就是我的 MinGW-w64 安装配置单，gcc 是 6.2.0 版本，系统架构是 64位，接口协议是 win32，异常处理模型是 seh，Build revision 是 1 。</p>
+<p>操作：点击红框中的“Next”按钮，进入下一个步骤。</p>
+<p><strong>17.选择 MinGW-w64 的安装目录</strong><br>
+<a href="http://img.rsreland.net/1760/1760_17.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_17.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_17.png" alt="MinGW-w64" /></noscript></a><br>
+说明：在这里选择 MinGW-w64 将要安装到哪个目录中去。安装程序默认会将 MinGW-w64 安装在 C盘 ，而在 Windows 操作系统中&nbsp;C盘 是系统盘，操作系统会被安装在这个盘里，而按照一般的习惯，我们尽量不把应用软件安装载系统盘里。因为以前的电脑使用的是机械硬盘，而机械硬盘频繁读写会降低效率，所以尽量将操作系统与应用软件放在不同的硬盘分区下。当然，现在的电脑大部分都配备了固态硬盘（SSD），而且通常作为系统盘来使用，因此已经没有读写效率的问题了。所以如果你还在用机械硬盘，就将 MinGW-w64 放到其他非系统盘里，如果使用固态硬盘，则可以放在安装程序提示的默认位置，或其他地方均可。</p>
+<p>操作：点击红框中的“Browse”按钮，以便更改 MinGW-w64 的安装位置。</p>
+<p><strong>18.更改 MinGW-w64 的安装位置</strong><br>
+<a href="http://img.rsreland.net/1760/1760_18.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_18.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_18.png" alt="MinGW-w64" /></noscript></a><br>
+说明：点开绿框中的“此电脑”，就可以打开一个树状列表，然后找到你想要将 MinGW-w64 安装到的位置。你也可以点击黄框中的“新建文件夹”按钮，创建一个新的目录。</p>
+<p>操作：选择好安装的目录后，点击红框中的“确定”按钮，之后安装程序将把&nbsp;MinGW-w64 安装到那里。</p>
+<p><strong>19.确认 MinGW-w64 安装目录</strong><br>
+<a href="http://img.rsreland.net/1760/1760_19.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_19.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_19.png" alt="MinGW-w64" /></noscript></a><br>
+说明：界面中的 Space available 指的是你选择的目录，所在的硬盘分区的剩余空间，而 MinGW-w64 至少会占用 500 MB 的空间。Create shortcuts in Start Menu 是说在开始菜单创建 MinGW-w64 的快捷方式，一般默认勾选即可。</p>
+<p>操作：确认安装目录没问题后，点击红框中的“Next”按钮，开始正式安装 MinGW-w64 。</p>
+<p><strong>20.开始下载 MinGW-w64 本体</strong><br>
+<a href="http://img.rsreland.net/1760/1760_20.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_20.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_20.png" alt="MinGW-w64" /></noscript></a><br>
+说明：安装程序开始连接服务器，并从中下载 MinGW-w64 的本体文件，视乎你的网络环境，下载所需的时间会有所不同，如果你有其他事情要做，可以点击“Cancel”按钮，取消本次安装。</p>
+<p>操作：只需等待。</p>
+<p><strong>21.MinGW-w64 下载完成</strong><br>
+<a href="http://img.rsreland.net/1760/1760_21.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_21.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_21.png" alt="MinGW-w64" /></noscript></a><br>
+说明：MinGW-w64 已经下载完成，我们可以在之前选择的安装目录下，找到它的各种组件文件。</p>
+<p>操作：点击红框中的“Next”按钮，继续下一个步骤。</p>
+<p><strong>22.关闭 MinGW-w64 安装程序</strong><br>
+<a href="http://img.rsreland.net/1760/1760_22.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_22.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_22.png" alt="MinGW-w64" /></noscript></a><br>
+说明：MinGW-w64 的安装程序已经完成了它的使命，但 MinGW-w64 还没有安装完成，之后我们还需要进行一些配置，才能正常使用它编译源代码。</p>
+<p>操作：点击红框中的“Finish”按钮，将关闭 MinGW-w64 安装程序。</p>
+<p><strong>23.MinGW-w64 安装目录</strong><br>
+<a href="http://img.rsreland.net/1760/1760_23.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_23.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_23.png" alt="MinGW-w64" /></noscript></a><br>
+说明：MinGW-w64 下载完成后的安装目录，包含1个文件夹：mingw64，3个文件：mingw-w64.bat、uninstall.exe、uninstall.ini，和1个快捷方式：mingw-w64。虽然 MinGW-w64 已经下载完成，但并没有安装完成，我们还需要配置一下操作系统的环境变量，将 MinGW-w64 的 bin 目录加入其中，使操作系统可以找到那些编译工具。</p>
+<p>操作：双击红框中的“mingw64”文件夹，进入其中。</p>
+<p><strong>24.MinGW-w64 的 mingw64 文件夹</strong><br>
+<a href="http://img.rsreland.net/1760/1760_24.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_24.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_24.png" alt="MinGW-w64" /></noscript></a><br>
+说明：mingw64 中包含了一系列的文件夹，根据文件夹的名称，大概能猜到它们是做什么用的，但我们暂时不需要完全明白，只需要知道其中 bin 文件夹中，存放了那些编译工具即可。</p>
+<p>操作：双击红框中的“bin”文件夹，进入其中。</p>
+<p><strong>25.MinGW-w64 的 bin 文件夹</strong><br>
+<a href="http://img.rsreland.net/1760/1760_25.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_25.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_25.png" alt="MinGW-w64" /></noscript></a><br>
+说明：bin 文件夹下包含了很多后缀名是 .exe 的可执行程序，这些就是开发时所需的工具，如：gcc.exe 是用来编译 C程序的，g++.exe 是用来编译 C++ 程序的，而 gdb.exe 则是用来调试程序的 debug 工具。</p>
+<p>操作：点击红框中的地址栏，并复制（Ctrl + c）那一串地址。</p>
+<p><strong>26.此电脑</strong><br>
+<a href="http://img.rsreland.net/1760/1760_26.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_26.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_26.png" alt="MinGW-w64" /></noscript></a><br>
+说明：我们已经复制了 MinGW-w64 的 bin 文件夹的地址，接下来只要将它添加到系统的环境变量中，就可以完成 MinGW-w64 的全部配置了。</p>
+<p>操作：右键点击“此电脑”，在弹出的菜单中点击红框中的“属性”项。</p>
+<p><strong>27.计算机系统窗口</strong><br>
+<a href="http://img.rsreland.net/1760/1760_27.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_27.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_27.png" alt="MinGW-w64" /></noscript></a><br>
+说明：这个窗口也可以通过“控制面板” -&gt; “系统和安全” -&gt; “系统”来打开。如果你不知道自己的系统是 32位 还是 64位，也可以在这里查看。</p>
+<p>操作：点击红框中的“高级系统设置”链接，将打开“系统属性”窗口。</p>
+<p><strong>28.系统属性窗口</strong><br>
+<a href="http://img.rsreland.net/1760/1760_28.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_28.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_28.png" alt="MinGW-w64" /></noscript></a><br>
+说明：所谓的“环境变量”其实就是各种程序的默认安装目录，在那里有可执行程序。</p>
+<p>操作：点击红框中的“环境变量”按钮，将打开“环境变量”窗口。</p>
+<p><strong>29.系统环境变量窗口</strong><br>
+<a href="http://img.rsreland.net/1760/1760_29.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_29.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_29.png" alt="MinGW-w64" /></noscript></a><br>
+说明：在这个窗口中我们可以编辑系统的环境变量，很多软件在安装的时候，会自动编辑环境变量。MinGW-w64 的安装程序比较简陋，只能由我们手动编辑。</p>
+<p>操作：首先点击选中绿框中的“Path”项，然后再点击红框中的“编辑”按钮。</p>
+<p><strong>30.编辑 Path 环境变量</strong><br>
+<a href="http://img.rsreland.net/1760/1760_30.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_30.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_30.png" alt="MinGW-w64" /></noscript></a><br>
+说明：这是 Windows 10 中的编辑界面，比之前的版本要清晰明了，操作简单了很多，也不容易出错了。</p>
+<p>操作：点击红框中的“新建”按钮，将创建一个新的空白变量位置。</p>
+<p><strong>31.新建 MinGW-w64 的环境变量</strong><br>
+<a href="http://img.rsreland.net/1760/1760_31.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_31.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_31.png" alt="MinGW-w64" /></noscript></a><br>
+说明：现在只需将之前复制的 MinGW-w64 的 bin 文件夹地址，复制到新增的空白变量位置里，即可完成 MinGW-w64 的配置工作。</p>
+<p>操作：将 bin 文件夹地址，黏贴到红框中的输入框中。</p>
+<p><strong>32.添加 MinGW-w64 环境变量已完成</strong><br>
+<a href="http://img.rsreland.net/1760/1760_32.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_32.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_32.png" alt="MinGW-w64" /></noscript></a><br>
+说明：MinGW-w64 的环境变量已经添加完毕。</p>
+<p>操作：点击红框中的“确定”按钮，MinGW-w64 的配置就完成了。</p>
+<p><strong>33.启动“命令提示符”</strong><br>
+<a href="http://img.rsreland.net/1760/1760_33.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_33.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_33.png" alt="MinGW-w64" /></noscript></a><br>
+说明：为了测试 MinGW-w64 是否配置成功，我们需要在“命令提示符”中执行一个命令。所以要先启动“命令提示符”，值得注意的是各个 Windows 版本的启动方式不同，但都可以通过打开“运行”窗口，输入“cmd”来打开它。</p>
+<p>操作：右键点击开始按钮，在弹出的菜单中点击红框中的“命令提示符”项。</p>
+<p><strong>34.命令提示符</strong><br>
+<a href="http://img.rsreland.net/1760/1760_34.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_34.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_34.png" alt="MinGW-w64" /></noscript></a><br>
+说明：MinGW-w64 是命令行工具，如果不与其他软件配合，则只能通过“命令提示符”来调用。</p>
+<p>操作：输入“gcc -v” 并按回车键（Enter），将会显示 MinGW-w64 的组件列表。</p>
+<p><strong>35.MinGW-w64 安装完成</strong><br>
+<a href="http://img.rsreland.net/1760/1760_35.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_35.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_35.png" alt="MinGW-w64" /></noscript></a><br>
+说明：如果你的“命令提示符”显示了一大串组件信息，那说明你的 MinGW-w64 已经安装完成了，恭喜！</p>
+<p>操作：从现在开始你就可以用 MinGW-w64 来编译 C程序 了。</p>
+<p><strong>五、使用 MinGW-w64&nbsp;</strong><strong>编译源代码</strong><br>
+MinGW-w64 没有图形用户界面，它其实是一组命令行工具集，任何操作都只能通过在“命令提示符”中输入命令的形式来执行。对于编程来说，这种命令行工具尤其独特的优势，那就是不用双手离开键盘，即可完成所有操作。鼠标虽然使用简单方便，但效率仍然不及键盘。而且，给一个程序开发图形用户界面，是一件非常麻烦的事情，因为它是与平台紧密相关的，你要考虑各个平台的不同。</p>
+<p>当然，世界上还是有很多拥有漂亮的图形用户界面的集成开发环境（IDE），其中的一些内置的编译器就是 MinGW-w64(GCC) ，例如：Code Lite、Code::Blocks 等。</p>
+<p><strong>A.编译命令 gcc</strong><br>
+<a href="http://img.rsreland.net/1760/1760_36.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_36.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_36.png" alt="MinGW-w64" /></noscript></a><br>
+格式：gcc 源代码文件的完整名字<br>
+示例：gcc hello.c</p>
+<p>说明：“gcc”是 MinGW-w64 内置的编译命令，“hello.c”则是我们要编译的源代码文件的名字。</p>
+<p>注意：首先，“gcc”命令与源代码的文件名之间有一个空格。其次，文件名必须完整正确，不能省略后缀名“.c”。</p>
+<p>因为 MinGW-w64 本来就是将 GCC 移植到 Windows 上的产物，所以操作方式和 GCC 一样，只是在 Linux 下命令是被键入到“终端”中，而 Windows 下则是被键入到“命令提示符”里。</p>
+<p><strong>B.创建 hello.c 源代码文件</strong><br>
+<a href="http://img.rsreland.net/1760/1760_37.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_37.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_37.png" alt="MinGW-w64" /></noscript></a><br>
+在用“gcc”命令编译源代码之前，我们首先要有一个存储了C语言代码的文件。C语言的源代码文件其实就是普通的文本文件，唯一的区别就是后缀名不同，文本文件的后缀名是“.txt”，而C语言源代码文件的后缀名是“.c”。</p>
+<p>所以我们新建一个文本文件，名字可以任意取，我这里就将其命名为“hello”，现在文件的完整名字就是“hello.txt”了。之后我们只需要把“hello.txt”的后缀名“.txt”更改为“.c”后缀名，这样就得到了 C语言 源代码文件“hello.c”了。</p>
+<p><strong>C.编写 hello, world 源代码</strong><br>
+<a href="http://img.rsreland.net/1760/1760_38.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_38.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_38.png" alt="MinGW-w64" /></noscript></a><br>
+这里用 Windows 自带的记事本或任意文本编辑器，将“hello.c”这个源代码文件打开，然后将上图所示的测试代码键入到文件中，最后保存文件即可。现在测试用的源代码文件已经准备完成，我们可以进行下一步的编译了。</p>
+<p>这段代码是最基础的 hello, world 程序，会在屏幕上显示“hello, world”这段文字。相信这是学编程的大多数人，入门时的第一个程序，所以这里也就不再赘述了。</p>
+<p><strong>D.编译 hello.c 源代码</strong><br>
+<a href="http://img.rsreland.net/1760/1760_39.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_39.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_39.png" alt="MinGW-w64" /></noscript></a><br>
+之前说过 MinGW-w64 是命令行工具没有图形用户界面，所以编译操作需要在命令提示符中进行。</p>
+<p>首先我们打开命令提示符，然后要将工作目录定位到源代码文件的存储位置，这一步非常重要，没有接触过命令行工具的人，往往会在这里出错。DOS 命令“cd”可以改变当前的工作目录，具体做法是“cd”命令后面加上目标工作目录，如上图第三行，就是重新定位到 E盘的 a 目录下。使用完“cd”命令后，还要再键入一次定位到的目录的地址，这样才会转移过去，但只需要键入盘符即可，并不需要键入完整地址，如上图第四行。工作目录重新定位后，如上图第五行所示，工作目录已经从 C:\Users\lenovo 更改为 E:\a&nbsp;。</p>
+<p>现在我们只需要执行“gcc hello.c”这行命令，就可以将源代码编译为可执行程序了。</p>
+<p><strong>E.编译后生成 a.exe 可执行程序</strong><br>
+<a href="http://img.rsreland.net/1760/1760_40.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_40.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_40.png" alt="MinGW-w64" /></noscript></a><br>
+如上图所示，a.exe 就是编译后生成的可执行程序。因为我们编译时没有指定生成的程序名，所以 MinGW-w64 默认将程序命名为 a ，加上后缀名就是 a.exe 了。如果我们想在编译时就指定生成的程序名，就需要使用“gcc”命令的“-o”选项了。</p>
+<p><strong>F.带 -o 参数的 gcc 命令</strong><br>
+<a href="http://img.rsreland.net/1760/1760_41.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_41.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_41.png" alt="MinGW-w64" /></noscript></a><br>
+格式：gcc 源代码文件的名字 -o 编译后程序的名字<br>
+示例：gcc hello.c -o hello.exe</p>
+<p>说明：“gcc”这个命令拥有很多内置选项，其中“-o”表示将它后面的单词设置编译后文件的名字。</p>
+<p>注意：选项“o”是英文的小写字母，并不是数字零，并且它的后面只能是想设置的文件名。</p>
+<p>这种在编译时命名的方法好像很鸡肋，初看好像只是帮我们省了一些时间，毕竟我们也可以在编译后手动改名。这种想法是因为我们的程序还很简单，只有一个源代码文件，也只会编译出一个程序。当以后我们的程序变复杂了，可能会在一个工作目录下编译出复数个程序，这时就必须用 -o 选项了，否则编译出的程序都叫 a.exe ，会在生成时互相覆盖掉。</p>
+<p><strong>G.编译 hello.c 成 hello.exe</strong><br>
+<a href="http://img.rsreland.net/1760/1760_42.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_42.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_42.png" alt="MinGW-w64" /></noscript></a><br>
+同样要先定位到我们在用的工作目录下，然后执行“gcc hello.c -o hello.exe”这条命令，就会编译生成一个名叫 hello.exe 的可执行文件了。</p>
+<p><strong>H.编译后生成 hello.exe 可执行程序</strong><br>
+<a href="http://img.rsreland.net/1760/1760_43.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_43.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_43.png" alt="MinGW-w64" /></noscript></a><br>
+执行完“gcc hello.c -o hello.exe”编译命令后，会在工作目录中生成 hello.exe 可执行程序，这就是我们得到的最终成果。</p>
+<p><strong>I.双击运行 hello.exe</strong><br>
+<a href="http://img.rsreland.net/1760/1760_44.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_44.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_44.png" alt="MinGW-w64" /></noscript></a><br>
+用鼠标双击运行编译后的 hello.exe 程序，会启动一个命令提示符窗口，并在里面显示“hello, world”这几个字符。这代表我们成功的完成了一次编译，将那段C语言代码编译成了计算机可以执行的程序。</p>
+<p><strong>J.在命令提示符中运行 hello.exe</strong><br>
+<a href="http://img.rsreland.net/1760/1760_45.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_45.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_45.png" alt="MinGW-w64" /></noscript></a><br>
+想要运行编译好的程序，并不是非要用鼠标双击程序启动，也可在命令提示符中直接输入编译后的程序名称，例如输入“hello.exe”，也可以直接运行程序。甚至可以省略程序的后缀名，只需输入“hello”即可，程序同样会正确的运行。</p>
+<p><strong>六、一些额外的设置</strong><br>
+这些额外的设置，可以使 MinGW-w64 使用起来更方便。因为“gcc”命令有些麻烦，每次编译都要输入类似“gcc hello.c -o hello.exe”这样的一串字符，所以我们为了简化这一步骤，转而使用“make”命令。只是“make”是 Linux 和 类Unix 下的工具，所以在 MinGW-w64 中需要一些额外的修改。</p>
+<p><strong>1).创建 gcc.exe 的副本 cc.exe</strong><br>
+<a href="http://img.rsreland.net/1760/1760_46.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_46.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_46.png" alt="MinGW-w64" /></noscript></a><br>
+首先复制一个“gcc.exe”的副本，然后将其更名为“cc.exe”即可。</p>
+<p><strong>2).创建 mingw32-make.exe 的副本 make.exe</strong><br>
+<a href="http://img.rsreland.net/1760/1760_47.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_47.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_47.png" alt="MinGW-w64" /></noscript></a><br>
+与对“gcc.exe”的操作相同，复制一个“mingw32-make”的副本，然后更名为“make.exe”。</p>
+<p><strong>3).使用 make 命令编译源代码</strong><br>
+<a href="http://img.rsreland.net/1760/1760_48.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_48.png" alt="MinGW-w64" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_48.png" alt="MinGW-w64" /></noscript></a><br>
+现在我们就可以使用“make”命令来编译源代码，只需要输入“make hello”即可编译生成“hello.exe”了。</p>
+<p><strong>七、进阶</strong></p>
+<p>上述只是简单的编译源代码的方法，适用于单个或少量源代码文件，如果是复杂的大型程序，要用到 makefile 来组织源代码时，就需要 mingw32-make（修改后使用 make） 命令了。</p>
+<p>如果程序编译或运行出错，需要调试源代码，则可以使用 gdb 命令，来帮助我们确定问题产生在哪里。</p>
+<p>如果代码没有明显的编译错误，运行时也没有逻辑错误，则在最终编译为可发布版的程序时，我们还要考虑编译优化的问题，以便生成的程序文件拥有更小的体积，和更高的运行效率。gcc 命令有 -00 、 -01 、 -02 、 -03 这几个优化选项，其中 -00 是默认选项，意思是无优化，剩下的几个选项随数字的增大，优化程度也会逐渐增强。</p>
+<p><strong>八、问题列表</strong><br>
+这里会列出一些可以预见的问题，并提供解决问题方法。</p>
+<p>①.如果“自动安装程序”无法下载组件<br>
+<a href="http://img.rsreland.net/1760/1760_49.png" target="_blank" rel="noopener"><img class="lazy " src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/grey.gif" data-original="http://img.rsreland.net/1760/1760_49.png" alt="自动安装程序无法下载组件" style="display: inline;"><noscript><img src="http://img.rsreland.net/1760/1760_49.png" alt="自动安装程序无法下载组件" /></noscript></a><br>
+说明：如果网络环境不太好，或因宽带提供商的限制，可能会导致程序下载组件非常的缓慢，甚至会失败。这种时候，我们可以不用安装程序，而是尝试直接手动下载 MinGW-w64 的压缩包。这种方法的好处是可以使用第三方下载软件，而这种下载软件大多提供加速下载，以及断点续传功能。基本能解决无法下载的问题。</p>
+<p>操作：如上图所示。将第四章、第3节 SourceForge 中的 MinGW-w64 下载页面往下拉，就能看到这部分的页面。其中，红框内的链接，就是&nbsp;MinGW-w64 的压缩包手动下载链接（6.3.0版），只需根据需要选择对应的链接下载即可。例如：x86_64-win32-seh ，x86_64 指 64位，win32 指可开发 Windows 程序，seh 指 异常处理模型。</p>
+<p>将 MinGW-w64 压缩包下载到本地后，解压缩，然后就可以照常进行配置了。</p>
+<p><strong>本文许可：</strong><br>
+本文由 rsreland(瑞兰德) 编写，使用 RSReland Documentation License 许可证并遵循其内容，您的权利与义务详见&nbsp;<a href="http://rsreland.net/licence" target="_blank" rel="noopener">http://rsreland.net/licence</a>&nbsp;。</p>
+<div class="yarpp-related">
+<hr><h3>你可能感兴趣：</h3><ol>
+<li><a href="http://rsreland.net/archives/344" rel="bookmark" title="《⑨也懂系列：MinGW安装教程Ver.2》著名C/C++编译器GCC的Windows版本">《⑨也懂系列：MinGW安装教程Ver.2》著名C/C++编译器GCC的Windows版本 </a></li>
+<li><a href="http://rsreland.net/archives/727" rel="bookmark" title="《⑨也懂系列：GNU Emacs安装教程Ver.2》世界著名的顶级全能文本编辑器">《⑨也懂系列：GNU Emacs安装教程Ver.2》世界著名的顶级全能文本编辑器 </a></li>
+<li><a href="http://rsreland.net/archives/1532" rel="bookmark" title="在Emacs中用ediff比较文件时出错的解决方法（Searching for program: no such file or directory, diff）">在Emacs中用ediff比较文件时出错的解决方法（Searching for program: no such file or directory, diff） </a></li>
+</ol>
+</div>
+					</div><!-- div .post-text -->
+										<footer>
+						<div class="clear"></div>
+												<hr>
+						<span class="nav-previous"><a href="http://rsreland.net/archives/1753" rel="prev">《シャイナ・ダルク 〜黒き月の王と蒼碧の月の姫君〜(世外魔岛～黑月之王与双月公主～)》日文原版漫画扫图，全4卷，已完结。</a></span><!-- tags .previous -->
+						<span class="nav-guide"><h4>《新文章 | 旧文章》</h4></span>
+						<span class="nav-next"><a href="http://rsreland.net/archives/1768" rel="next">Cherry G80-3000 白色茶轴</a></span><!-- tags .next -->
+						<div class="clear"></div>
+						<hr>
+						<div id="comments">
+			<h2>
+			共有13条评论		</h2>
+				<ol class="commentlist">
+						<div id="comment-23140" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn"><a href="http://maluguang.com/" rel="external nofollow" class="url">roadwide</a></span> <br>在 <a href="http://rsreland.net/archives/1760#comment-23140"><time datetime="2019-03-10T08:55:46+00:00">2019年3月10日 08:55</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>有一处机械硬盘写成机械键盘了</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=23140#respond" onclick="return addComment.moveForm( &quot;comment-23140&quot;, &quot;23140&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给roadwide">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<ul class="children">
+			<div id="comment-23147" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn"><a href="http://rsreland.net/" rel="external nofollow" class="url">rsreland</a></span> <br>在 <a href="http://rsreland.net/archives/1760#comment-23147"><time datetime="2019-03-10T17:43:51+00:00">2019年3月10日 17:43</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>感谢反馈，已修改。</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=23147#respond" onclick="return addComment.moveForm( &quot;comment-23147&quot;, &quot;23147&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给rsreland">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+			<div id="comment-23001" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn">匿名</span> <br>在 <a href="http://rsreland.net/archives/1760#comment-23001"><time datetime="2019-02-26T21:37:28+00:00">2019年2月26日 21:37</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>太棒啦</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=23001#respond" onclick="return addComment.moveForm( &quot;comment-23001&quot;, &quot;23001&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+			<div id="comment-21932" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn">匿名</span> <br>在 <a href="http://rsreland.net/archives/1760#comment-21932"><time datetime="2018-12-15T22:42:16+00:00">2018年12月15日 22:42</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>感谢！</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=21932#respond" onclick="return addComment.moveForm( &quot;comment-21932&quot;, &quot;21932&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+			<div id="comment-21286" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn">Cool</span> <br>在 <a href="http://rsreland.net/archives/1760#comment-21286"><time datetime="2018-10-16T10:14:09+00:00">2018年10月16日 10:14</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>真的是太详细了,每个步骤都有说明和操作,非常感谢!辛苦了.打赏几块钱以表心意.</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=21286#respond" onclick="return addComment.moveForm( &quot;comment-21286&quot;, &quot;21286&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给Cool">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+			<div id="comment-20153" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn">匿名</span> <br>在 <a href="http://rsreland.net/archives/1760#comment-20153"><time datetime="2018-05-13T08:26:59+00:00">2018年5月13日 08:26</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>你好，我编译一个.C文件，文件内有中文字符，编译后显示乱码，请问这个如何解决？</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=20153#respond" onclick="return addComment.moveForm( &quot;comment-20153&quot;, &quot;20153&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<ul class="children">
+			<div id="comment-20154" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn"><a href="http://rsreland.net/" rel="external nofollow" class="url">rsreland</a></span> <br>在 <a href="http://rsreland.net/archives/1760#comment-20154"><time datetime="2018-05-13T11:00:07+00:00">2018年5月13日 11:00</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>可以在编译时试试这个选项 -fexec-charset=GBK</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=20154#respond" onclick="return addComment.moveForm( &quot;comment-20154&quot;, &quot;20154&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给rsreland">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+			<div id="comment-19006" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn">匿名</span> <br>在 <a href="http://rsreland.net/archives/1760#comment-19006"><time datetime="2018-02-04T15:30:19+00:00">2018年2月4日 15:30</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>太详细了，真心感谢~</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=19006#respond" onclick="return addComment.moveForm( &quot;comment-19006&quot;, &quot;19006&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<ul class="children">
+			<div id="comment-19306" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn"><a href="http://rsreland.net/" rel="external nofollow" class="url">rsreland</a></span> <br>在 <a href="http://rsreland.net/archives/1760#comment-19306"><time datetime="2018-02-27T10:47:22+00:00">2018年2月27日 10:47</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>客气</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=19306#respond" onclick="return addComment.moveForm( &quot;comment-19306&quot;, &quot;19306&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给rsreland">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+			<div id="comment-17051" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn">童心</span> <br>在 <a href="http://rsreland.net/archives/1760#comment-17051"><time datetime="2017-08-04T11:29:19+00:00">2017年8月4日 11:29</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>您好，我下载了压缩包解压之后再安装还是出错，cannot download repository.txt？请问怎么解决谢谢！</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=17051#respond" onclick="return addComment.moveForm( &quot;comment-17051&quot;, &quot;17051&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给童心">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<ul class="children">
+			<div id="comment-17061" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn"><a href="http://rsreland.net/" rel="external nofollow" class="url">rsreland</a></span> <br>在 <a href="http://rsreland.net/archives/1760#comment-17061"><time datetime="2017-08-04T22:51:37+00:00">2017年8月4日 22:51</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>下载下来的压缩包是7z格式，解压后即可直接使用，不用安装。你可能下载错了，下载的是安装包，之所以会出现那个提示，是因为你的网络问题。详见第八部分，问题①。</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=17061#respond" onclick="return addComment.moveForm( &quot;comment-17061&quot;, &quot;17061&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给rsreland">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+			<div id="comment-16037" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn">王晨</span> <br>在 <a href="http://rsreland.net/archives/1760#comment-16037"><time datetime="2017-04-13T17:12:36+00:00">2017年4月13日 17:12</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>我的在下载过程中提示下载出错，可以将下载后的那个几百兆的文件发给我吗，急，谢谢谢谢！！！！</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=16037#respond" onclick="return addComment.moveForm( &quot;comment-16037&quot;, &quot;16037&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给王晨">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<ul class="children">
+			<div id="comment-16041" class="comment">
+				<header>
+					<div class="comment-meta">
+						<div class="comment-author vcard">
+							<span class="fn"><a href="http://rsreland.net/" rel="external nofollow" class="url">rsreland</a></span> <br>在 <a href="http://rsreland.net/archives/1760#comment-16041"><time datetime="2017-04-14T09:21:56+00:00">2017年4月14日 09:21</time></a> <span class="says">发布:</span>						<hr>
+						</div><!-- .comment-author .vcard -->
+											</div>
+				</header>
+				<div class="clear"></div>
+				<div class="comment-content">
+					<p>下载出错，解决方法详见第八章、第1节。</p>
+				</div>
+				<footer>
+										<div class="reply">
+						<a rel="nofollow" class="comment-reply-link" href="http://rsreland.net/archives/1760?replytocom=16041#respond" onclick="return addComment.moveForm( &quot;comment-16041&quot;, &quot;16041&quot;, &quot;respond&quot;, &quot;1760&quot; )" aria-label="回复给rsreland">回复<span>↓</span></a>					</div><div class="clear"></div><!-- .reply -->
+				</footer>
+			</div><!-- #comment-## -->
+			<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+		</ol>
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://rsreland.net/archives/1760#respond" style="display:none;">取消回复</a></small></h3>			<form action="http://rsreland.net/wp-comments-post.php" method="post" id="commentform" class="comment-form journalism-form">
+				<p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span></p><p class="comment-form-comment"><label for="comment">评论</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">姓名</label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" class="text" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"></p>
+<p class="comment-form-email"><label for="email">电子邮件</label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" class="text"></p>
+<p class="comment-form-url"><label for="url">站点</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" class="text"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit journalism-submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="1760" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="85dad69d75"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1555722429373"></form>
+			</div><!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">此站点使用Akismet来减少垃圾评论。<a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">了解我们如何处理您的评论数据</a>。</p></div><!-- #comments -->
+<!-- comments -->
+					</footer>
+				</div><!-- div .journalism-post-carcas -->
+			</div><!-- div .post -->
+			</div><!-- div #content -->
+<aside id="sidebar">
+	<div class="widget">			<div class="textwidget"><p><b>感冒终于好了。</b></p>
+</div>
+		</div><div class="widget_text widget"><div class="textwidget custom-html-widget"><img src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/dorothy.png" usemap="#charmap">
+
+<map name="charmap" id="charmap">
+<area shape="rect" coords="0,0,219,95" href="http://urdoll.net/" target="_blank">
+<area shape="rect" coords="0,96,219,180" href="http://weibo.com/rsreland" target="_blank">
+<area shape="rect" coords="0,181,219,280" href="http://img.rsreland.net/" target="_blank">
+<area shape="rect" coords="0,281,219,482" href="http://rsreland.net/wp-admin">
+</map></div></div><div class="widget_text widget"><div class="textwidget custom-html-widget"><a href="http://rsreland.net/oneyuan" target="_blank"><img src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/dorothy1.png" alt="捐助一元"></a>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:yellow">↑↑↑ 点击捐赠 ↑↑↑</span>
+<br><br>
+本站每年需要花费<span style="color:white">69元</span>（又涨价了）来维持运行，我们希望通过获得捐赠的方式，使她可以一直运行下去。
+<br><br>
+<strong><span style="color:red">注意：</span></strong>为了安全，我们<span style="color:white">不会使用</span>您的微信、支付宝用户名。因此，希望您能<span style="color:white">留下自己的大名</span>，以便将您列入感谢名单，表达对您的谢意。
+<br><br>
+<strong><span style="color:orange">认领：</span></strong>现在已有数十条匿名捐赠记录，请捐赠的朋友点击相应日期后的认领链接，在打开页面的最下面评论区留下您的大名。
+<br><br>
+<strong><span style="color:white">感谢下列朋友的捐赠：</span></strong><br>
+
+2019.02.23 冬木市民丸户先生<br>
+
+2019.02.13 缘之空<br>
+
+2019.02.13 佚名（<a href="http://rsreland.net/thanks" target="_blank">认领捐赠记录</a>）<br>
+
+2019.02.11 佚名（<a href="http://rsreland.net/thanks" target="_blank">认领捐赠记录</a>）<br>
+
+2019.02.07 佚名（<a href="http://rsreland.net/thanks" target="_blank">认领捐赠记录</a>）<br>
+
+2019.01.22 佚名（<a href="http://rsreland.net/thanks" target="_blank">认领捐赠记录</a>）<br>
+
+2019.01.08 佚名（<a href="http://rsreland.net/thanks" target="_blank">认领捐赠记录</a>）<br>
+
+2019.01.05 佚名（<a href="http://rsreland.net/thanks" target="_blank">认领捐赠记录</a>）<br>
+
+2019.01.05 佚名（<a href="http://rsreland.net/thanks" target="_blank">认领捐赠记录</a>）<br>
+
+2019.01.03 梦落沉溪<br>
+
+<br><a href="http://rsreland.net/thanks" target="_blank">[查看完整名单]</a></div></div><div class="widget" style="background-color: rgb(24, 30, 33); padding-bottom: 0px; padding-top: 0px;"><div class="journalism-search-wrap">
+	<form method="get" action="http://rsreland.net/" class="journalism-form">
+		<input id="search" class="journalism-search-field" type="text" placeholder="搜索:请在这里输入关键字" name="s" value="" title="">
+	</form>
+</div>
+</div><div class="widget"><h5 class="widgettitle">文章标签</h5><div class="tagcloud"><a href="http://rsreland.net/archives/tag/nes" class="tag-cloud-link tag-link-3 tag-link-position-1" style="font-size: 9.6153846153846pt;" aria-label="NES (2个项目)">NES</a>
+<a href="http://rsreland.net/archives/tag/unhistness" class="tag-cloud-link tag-link-39 tag-link-position-2" style="font-size: 9.6153846153846pt;" aria-label="《未知历史见证人》 (2个项目)">《未知历史见证人》</a>
+<a href="http://rsreland.net/archives/tag/touhou_project" class="tag-cloud-link tag-link-23 tag-link-position-3" style="font-size: 9.6153846153846pt;" aria-label="东方Project (2个项目)">东方Project</a>
+<a href="http://rsreland.net/archives/tag/copy" class="tag-cloud-link tag-link-29 tag-link-position-4" style="font-size: 12.935897435897pt;" aria-label="临摹 (6个项目)">临摹</a>
+<a href="http://rsreland.net/archives/tag/original" class="tag-cloud-link tag-link-38 tag-link-position-5" style="font-size: 9.6153846153846pt;" aria-label="原创 (2个项目)">原创</a>
+<a href="http://rsreland.net/archives/tag/classical_chinese" class="tag-cloud-link tag-link-22 tag-link-position-6" style="font-size: 9.6153846153846pt;" aria-label="古文 (2个项目)">古文</a>
+<a href="http://rsreland.net/archives/tag/novel" class="tag-cloud-link tag-link-37 tag-link-position-7" style="font-size: 9.6153846153846pt;" aria-label="小说 (2个项目)">小说</a>
+<a href="http://rsreland.net/archives/tag/finish" class="tag-cloud-link tag-link-17 tag-link-position-8" style="font-size: 19.666666666667pt;" aria-label="已完结 (39个项目)">已完结</a>
+<a href="http://rsreland.net/archives/tag/to_be_completed" class="tag-cloud-link tag-link-32 tag-link-position-9" style="font-size: 8pt;" aria-label="待完成 (1个项目)">待完成</a>
+<a href="http://rsreland.net/archives/tag/scanimage" class="tag-cloud-link tag-link-7 tag-link-position-10" style="font-size: 22pt;" aria-label="扫图 (71个项目)">扫图</a>
+<a href="http://rsreland.net/archives/tag/funny" class="tag-cloud-link tag-link-21 tag-link-position-11" style="font-size: 10.692307692308pt;" aria-label="搞笑 (3个项目)">搞笑</a>
+<a href="http://rsreland.net/archives/tag/graffiti" class="tag-cloud-link tag-link-8 tag-link-position-12" style="font-size: 9.6153846153846pt;" aria-label="涂鸦 (2个项目)">涂鸦</a>
+<a href="http://rsreland.net/archives/tag/manga" class="tag-cloud-link tag-link-10 tag-link-position-13" style="font-size: 21.282051282051pt;" aria-label="漫画 (59个项目)">漫画</a>
+<a href="http://rsreland.net/archives/tag/flaw" class="tag-cloud-link tag-link-28 tag-link-position-14" style="font-size: 17.692307692308pt;" aria-label="瑕疵 (23个项目)">瑕疵</a>
+<a href="http://rsreland.net/archives/tag/hardware" class="tag-cloud-link tag-link-35 tag-link-position-15" style="font-size: 8pt;" aria-label="硬件 (1个项目)">硬件</a>
+<a href="http://rsreland.net/archives/tag/experience" class="tag-cloud-link tag-link-34 tag-link-position-16" style="font-size: 8pt;" aria-label="经验 (1个项目)">经验</a>
+<a href="http://rsreland.net/archives/tag/programming" class="tag-cloud-link tag-link-14 tag-link-position-17" style="font-size: 12.307692307692pt;" aria-label="编程 (5个项目)">编程</a>
+<a href="http://rsreland.net/archives/tag/art" class="tag-cloud-link tag-link-42 tag-link-position-18" style="font-size: 8pt;" aria-label="艺术 (1个项目)">艺术</a>
+<a href="http://rsreland.net/archives/tag/obituary" class="tag-cloud-link tag-link-36 tag-link-position-19" style="font-size: 9.6153846153846pt;" aria-label="讣告 (2个项目)">讣告</a>
+<a href="http://rsreland.net/archives/tag/software" class="tag-cloud-link tag-link-16 tag-link-position-20" style="font-size: 11.589743589744pt;" aria-label="软件 (4个项目)">软件</a>
+<a href="http://rsreland.net/archives/tag/lightnovel" class="tag-cloud-link tag-link-12 tag-link-position-21" style="font-size: 15.269230769231pt;" aria-label="轻小说 (12个项目)">轻小说</a>
+<a href="http://rsreland.net/archives/tag/serialize" class="tag-cloud-link tag-link-18 tag-link-position-22" style="font-size: 18.858974358974pt;" aria-label="连载中 (31个项目)">连载中</a>
+<a href="http://rsreland.net/archives/tag/posthumous" class="tag-cloud-link tag-link-31 tag-link-position-23" style="font-size: 8pt;" aria-label="遗作 (1个项目)">遗作</a></div>
+</div><div class="widget"><h5 class="widgettitle">文章分类</h5>		<ul>
+	<li class="cat-item cat-item-30"><a href="http://rsreland.net/archives/category/writing" title="小说、童话等原创文章。">写作</a> (2)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://rsreland.net/archives/category/tutorial" title="以教授知识为主要内容的文章。">教程</a> (3)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://rsreland.net/archives/category/tidy" title="以收集整理的非系统性的零散信息为主要内容的文章。">整理</a> (2)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://rsreland.net/archives/category/uncategorized">未分类</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://rsreland.net/archives/category/painting" title="以原创绘画为主要内容的文章。">绘画</a> (8)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://rsreland.net/archives/category/resource" title="以资源下载为主要内容的文章。">资源</a> (72)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://rsreland.net/archives/category/reship" title="非原创的文章。">转载</a> (4)
+</li>
+	<li class="cat-item cat-item-33"><a href="http://rsreland.net/archives/category/problem" title="遇到的问题和解决方案。">问题</a> (1)
+</li>
+		</ul>
+</div><div class="widget"><h5 class="widgettitle">网站统计</h5><ul class="cpd"><li class="cpd-l"><span id="cpd_number_getreadsall" class="cpd-r">228851</span>总阅览数:</li><li class="cpd-l"><span id="cpd_number_getreadstoday" class="cpd-r">119</span>今天阅读数量:</li><li class="cpd-l"><span id="cpd_number_getreadsyesterday" class="cpd-r">327</span>昨天阅读数量:</li><li class="cpd-l"><span id="cpd_number_getreadslastweek" class="cpd-r">3977</span>上周阅读数量:</li><li class="cpd-l"><span id="cpd_number_getreadsthismonth" class="cpd-r">9031</span>每月阅读量:</li><li class="cpd-l"><span id="cpd_number_getuserall" class="cpd-r">121867</span>总访问数:</li><li class="cpd-l"><span id="cpd_number_getusertoday" class="cpd-r">87</span>今天访问者数:</li><li class="cpd-l"><span id="cpd_number_getuseryesterday" class="cpd-r">244</span>昨日访问者数:</li><li class="cpd-l"><span id="cpd_number_getuserlastweek" class="cpd-r">2611</span>上周访问者数:</li><li class="cpd-l"><span id="cpd_number_getuserthismonth" class="cpd-r">5240</span>每月访问者数:</li><li class="cpd-l"><span id="cpd_number_getuserperday" class="cpd-r"><abbr title="last 7 days without today">361</abbr></span>每日访问者数:</li><li class="cpd-l"><span id="cpd_number_getuseronline" class="cpd-r">1</span>现在在线的访问者数:</li><li class="cpd-l"><span id="cpd_number_getfirstcount" class="cpd-r">2017年4月1日</span>计数起始于:</li></ul></div><div class="widget_text widget"><h5 class="widgettitle">虚拟主播：神楽めあ</h5><div class="textwidget custom-html-widget"><a href="https://space.bilibili.com/349991143" target="_blank"><img src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/0_2a.jpg" alt="神乐Mea"></a></div></div><div class="widget_text widget"><h5 class="widgettitle">虚拟主播：宇志海いちご</h5><div class="textwidget custom-html-widget"><a href="http://space.bilibili.com/359155805/" target="_blank"><img src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/0_3a.jpg" alt="宇志海莓"></a></div></div>	<div class="clear"></div>
+</aside><!-- #sidebar -->
+<div class="clear"></div>
+		</div><!--div .journalism-carcas-->
+		<div class="clear"></div>
+		<footer class="footer"><!--.footer--> 
+			<div class="journalism-carcas">
+				<div class="journalism-footer_right">
+					Powered by <a href="http://weibo.com/rsreland" target="_blank">rsreland</a>
+					and <a href="http://wordpress.org/" target="_blank">WordPress</a>
+					theme <a href="http://bestweblayout.com/" target="_blank">BestWebLayout</a>
+				</div>
+				<p class="span">Copyright ©&nbsp;2014-2019&nbsp;rsreland, All rights reserved. <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258704390'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258704390%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1258704390"></span><script src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/z_stat.php" type="text/javascript"></script></p>
+			</div><!--div .journalism-carcas footer-->
+		</footer><!--.footer--> 
+	<script type="text/javascript">
+// Count per Day
+//<![CDATA[
+var cpdTime = new Date().getTime() / 1000;
+jQuery(document).ready( function()
+{
+	jQuery.get('/wp-admin/?page=cpd_ajax&f=count&cpage=0&time='+cpdTime, function(text)
+	{
+		var cpd_funcs = text.split('|');
+		for(var i = 0; i < cpd_funcs.length; i++)
+		{
+			var cpd_daten = cpd_funcs[i].split('===');
+			var cpd_field = document.getElementById('cpd_number_' + cpd_daten[0].toLowerCase());
+			if (cpd_field != null) { cpd_field.innerHTML = cpd_daten[1]; }
+		}
+	});
+} );
+//]]>
+</script><script type="text/javascript">
+(function($){
+  $("img.lazy").show().lazyload({effect: "fadeIn"});
+})(jQuery);
+</script>
+<link rel="stylesheet" id="yarppRelatedCss-css" href="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/related.css" type="text/css" media="all">
+<script type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/comment-reply.min.js.下载"></script>
+<script type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/wp-embed.min.js.下载"></script>
+<script async="async" type="text/javascript" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/form.js.下载"></script>
+	
+
+
+<!-- Dynamic page generated in 2.424 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-04-20 09:07:08 -->
+
+<!-- Compression = gzip --></body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span><div><div class="gr_-editor gr-iframe-first-load" style="display: none;"><div class="gr_-editor_back"></div><iframe class="gr_-ifr gr-_dialog-content" src="./《⑨也懂系列：MinGW-w64安装教程》著名C_C++编译器GCC的Windows版本 _ rsreland_files/saved_resource.html"></iframe></div></div><grammarly-card><div></div></grammarly-card></html>
