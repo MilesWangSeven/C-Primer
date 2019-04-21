@@ -1,0 +1,3 @@
+D:/git/github/C-Primer/Chapter 1/003.iostream/build/CMakeFiles/edit_cache.dir
+D:/git/github/C-Primer/Chapter 1/003.iostream/build/CMakeFiles/003.iostream.dir
+D:/git/github/C-Primer/Chapter 1/003.iostream/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/include1/include1.h
+
+../src/include2/include2.h
+
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include1/include1.cpp
+include1.h
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include1/include1.h
+
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include1/include1.h
+
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include2/include2.cpp
+include2.h
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include2/include2.h
+
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include2/include2.h
+
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/main.cpp
+iostream
+-
+include1.h
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include1.h
+include2.h
+D:/git/github/C-Primer/Chapter 1/003.iostream/src/include2.h
+
